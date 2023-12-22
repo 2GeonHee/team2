@@ -1,1 +1,97 @@
-hello world!!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/post.js"></script>
+    <link rel="stylesheet" href="../css/post.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <title>Gong wanhui</title>
+</head>
+
+<body>
+
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li>
+                        <a href="index.html" class="nav-link px-2 text-secondary">Home</a>
+                    </li>
+                    <li>
+                        <a href="wanhui.html" class="nav-link px-2 text-white">공완희</a>
+                    </li>
+                    <li>
+                        <a href="hyoil.html" class="nav-link px-2 text-white">이효일</a>
+                    </li>
+                    <li>
+                        <a href="geonhui.html" class="nav-link px-2 text-white">이건희</a>
+                    </li>
+                    <li>
+                        <a href="sehun.html" class="nav-link px-2 text-white">방세훈</a>
+                    </li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+                        aria-label="Search">
+                </form>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-warning">Sign-up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="posting">
+        <div class="card mb-3">
+            <div class="profile">
+                <div class="imgbox">
+                    <img src="../images/wanhui.jpg" class="card-img-top" alt="개인사진">
+                </div>
+                <div class="introduce" >
+                    <ul>
+                        <li><span>이름</span>공완희</li>
+                        <li><span>주소</span>대한민국 광주광역시 광산구</li>
+                        <li><span>취미</span>라디오 청취, 유튜브 감상</li>
+                        <li><span>mbti</span>INTJ</li>
+                        <li><span>관심사</span>백엔드 개발자 취업</li>
+                        <li><span>블로그</span>www.velog.io/gstudy0907</li>
+                        <li><span>한마디</span>안녕하세요, 이번 JAVA 4기에 합류하게 된 공완희라고 합니다.
+                                제가 모르는 부분이 많아서 많은 도움이 필요합니다. 
+                                수료에서 취업까지 성공하는 것을 목표로 잡고 열심히 참여하도록 하겠습니다. 잘 부탁합니다. </li>
+                    </ul>
+                </div>
+                 
+                </div>
+            </div>
+
+            <div class="card-body">
+                <h4 class="card-title">수리부엉이</h4>
+                <p class="card-text">소개글</p>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-dark" id="home" onclick="location.href='./index.html'">뒤로가기</button>
+        <button type="button" class="btn btn-dark" id="delete">삭제</button>
+
+    </div>
+
+</body>
+
+</html>
