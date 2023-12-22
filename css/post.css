@@ -1,24 +1,18 @@
 .posting{
     width: 1280px;
-    margin:0px auto;
-    padding: 50px; 
-
-   
+    margin:0 auto;
+    padding: 50px;
 }
 .posting ul li{
     list-style: none;
-    padding-bottom: 20px;
-  
-    
+    padding-bottom: 10px;
 }
 .posting ul li span{
     width: 60px;
     font-weight: bold;
     display: inline-block;
-    
 }
-.posting .imgbox 
-
+.posting .imgbox,
 .posting ul{
     display: inline-block;
     vertical-align: middle;
@@ -35,9 +29,6 @@
 
 .card-body{
     margin-top: 30px;
+    padding-top: 25px !important;
     border-top: 1px solid #ddd;
-}
-.introduce {
-    width : 70%;
-    margin : auto;
 }
