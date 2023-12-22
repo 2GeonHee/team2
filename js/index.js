@@ -16,9 +16,6 @@
 // $('#hyoil').click(async function(){
 //     window.location.href="./hyoil.html"
 // });
-
-
-
 $(document).on("click", "#wanhui", function(){
     window.location.replace("./wanhui.html");
   });
@@ -26,7 +23,6 @@ $(document).on("click", "#wanhui", function(){
 $(document).on("click", "#hyoil", function(){
     window.location.replace("./hyoil.html");
   });
-
   $(document).on("click", "#minyeong", function(){
     window.location.replace("./minyeong.html");
   });
@@ -36,4 +32,3 @@ $(document).on("click", "#hyoil", function(){
   $(document).on("click", "#geonhui", function(){
     window.location.replace("./geonhui.html");
   });
-
