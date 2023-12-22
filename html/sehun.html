@@ -1,69 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../js/post.js"></script>
+        <link rel="stylesheet" href="../css/post.css">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <title>hyoil</title>
+    </head>
+    <body>
 
-    <script src="../js/post.js"></script>
-    <link rel="stylesheet" href="../css/post.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-    <script module="">
+        <header class="p-3 text-bg-dark">
+            <div class="container">
+                <div
+                    class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a
+                        href="/"
+                        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                            <use xlink:href="#bootstrap"></use>
+                        </svg>
+                    </a>
 
-    </script>
-    <title>세훈</title>
-</head>
-<body>
-    <header class="p-3 text-bg-dark">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                </a>
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.html" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="wanhui.html" class="nav-link px-2 text-white">공완희</a></li>
-                    <li><a href="hyoil.html" class="nav-link px-2 text-white">이효일</a></li>
-                    <li><a href="geonhui.html" class="nav-link px-2 text-white">이건희</a></li>
-                    <li><a href="sehun.html" class="nav-link px-2 text-white">방세훈</a></li>
-                </ul>
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
-                        aria-label="Search">
-                </form>
-                <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <ul
+                        class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li>
+                            <a href="index.html" class="nav-link px-2 text-secondary">Home</a>
+                        </li>
+                        <li>
+                            <a href="wanhui.html" class="nav-link px-2 text-white">공완희</a>
+                        </li>
+                        <li>
+                            <a href="hyoil.html" class="nav-link px-2 text-white">이효일</a>
+                        </li>
+                        <li>
+                            <a href="geonhui.html" class="nav-link px-2 text-white">이건희</a>
+                        </li>
+                        <li>
+                            <a href="sehun.html" class="nav-link px-2 text-white">방세훈</a>
+                        </li>
+                    </ul>
+
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                        <input
+                            type="search"
+                            class="form-control form-control-dark text-bg-dark"
+                            placeholder="Search..."
+                            aria-label="Search">
+                    </form>
+
+                    <div class="text-end">
+                        <button type="button" class="btn btn-outline-light me-2">Login</button>
+                        <button type="button" class="btn btn-warning">Sign-up</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <div class="posting">
-        <div class="card mb-3">
-            <img src="../images/sehun1.jpg" class="card-img-top" alt="개인사진">
-            <div class="card-body">
-                <h5 class="card-title">방세훈</h5>
-                <p class="card-text">안녕하세요 저는 스프링4기에 참여하게된 방세훈입니다.</p>
-                <p class="card-text"><small class="text-body-secondary">5달동안 함께 성장해나가요</small></p>
-                <h2>취미</h2>
-                <hr>
-                <p>제 취미는 게임하는 것 입니다</p>
-                <h2>MBTI</h2>
-                <hr>
-                <p>INFP 입니다. 아주 심한 I 입니다</p>
-                <h2></h2>
-            </div>
-        </div>
-        <button type="button" class="btn btn-dark" id="home" onclick="location.href='./index.html'">뒤로가기</button>
-    </div>
+        </header>
 
-</body>
-<!--sadasdasdasdasdasdasdsad teeesssttttinggingign-->
+        <div class="posting">
+            <div class="card mb-3">
+                <div class="profile">
+                    <div class="imgbox">
+                         <img src="../images/sehun1.jpg" class="card-img-top" alt="개인사진">
+                    </div>
+                    <ul>
+                        <li><span>이름</span>방세훈</li>
+                        <li><span>주소</span>대한민국 경기도 하남시</li>
+                        <li><span>취미</span>코딩, 게임, 음악</li>
+                        <li><span>mbti</span>Infp</li>
+                        <li><span>관심사</span>게임</li>
+                        <li><span>블로그</span>만드는중!</li>
+                        <li><span>한마디</span>내 방패가 되어줄 인싸를 찾습니다</li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">소개</h4>
+                    <p class="card-text"> 게임은 잘합니다. 다 덤벼도 좋습니다. 무슨 게임이든 상관 없습니다.<br>
+                    극 I 여서 말을 잘 못합니다. 알고리즘 선생님 구합니다<br>
+                    감사합니다.</p>
+                </div>
+            </div>
+            <button
+                type="button"
+                class="btn btn-dark"
+                id="home"
+                onclick="location.href='./index.html'">뒤로가기</button>
+
+        </div>
+
+    </body>
 </html>
