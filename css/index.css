@@ -1,5 +1,35 @@
+.p-3 a{
+    color: #000;
+}
+.btn-outline-light{
+    color: #000 !important;
+    border-color: #ddd !important;
+}
+.mainContain{
+    background: url(../images/cat.jpg);
+    height: 500px;
+    border-radius: unset;
+    background-position: center;
+    background-position-x: 250px;
+    background-size: cover;
+}
+.mainContain h1.teamName,
+.mainContain p.intro{
+    color: #fff;
+    text-align: left;
+}
+.mainContain h1.teamName{
+    margin-bottom: 20px;
+}
+.mainContain .container{
+    padding: 180px 0;
+}
+
 #posting{
     width: 1280px;
-    margin: 0 auto;
+    margin: 30px auto;
     height: fit-content;
+}
+#posting .card{
+    margin: 0 16px 0;
 }
