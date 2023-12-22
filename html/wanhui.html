@@ -67,30 +67,53 @@
                 <div class="introduce" >
                     <ul>
                         <li><span>이름</span>공완희</li>
-                        <li><span>주소</span>대한민국 광주광역시 광산구</li>
+                        <li><span>주소</span>대한민국 전라남도 광주광역시 </li>
                         <li><span>취미</span>라디오 청취, 유튜브 감상</li>
                         <li><span>mbti</span>INTJ</li>
                         <li><span>관심사</span>백엔드 개발자 취업</li>
                         <li><span>블로그</span>www.velog.io/gstudy0907</li>
                         <li><span>한마디</span>안녕하세요, 이번 JAVA 4기에 합류하게 된 공완희라고 합니다.
-                                제가 모르는 부분이 많아서 많은 도움이 필요합니다. 
-                                수료에서 취업까지 성공하는 것을 목표로 잡고 열심히 참여하도록 하겠습니다. 잘 부탁합니다. </li>
+                                 도움을 주고 받으며 성장할 수 있는 시간이 되었으면 좋겠고 수료에서 취업까지 성공하는 것을 목표로 
+                                 열심히 참여하도록 하겠습니다. 잘 부탁합니다. </li>
                     </ul>
                 </div>
-                 
-                </div>
-            </div>
-
+                </div>    
             <div class="card-body">
                 <h4 class="card-title">수리부엉이</h4>
-                <p class="card-text">소개글</p>
+                <p class="card-text"> 커다란 눈으로 밤에도 잘 볼 수 있고, 정확하게 먹이까지의 거리를 쟬 수 있지만 시력보다 청력이 더 좋으며, 청력은 고양이의 4배에 달한다.
+                    풍부한 표정을 지을 수 있는 얼굴. 보통 눈이 좌우에 위치해 있는 대부분 조류들과는 달리 인간의 얼굴처럼 눈이 정면에 있어 더 다양한 표정을 내는 듯한 느낌을 주는 것이 매력 포인트다.</p>
             </div>
         </div>
 
         <button type="button" class="btn btn-dark" id="home" onclick="location.href='./index.html'">뒤로가기</button>
-        <button type="button" class="btn btn-dark" id="delete">삭제</button>
-
-    </div>
+       </div>
+        <!--  댓글 창  -->
+        <script src="../js/firebase.js" type="module"></script>
+        <script type="module">
+            import { Firebase } from '../js/firebase.js';
+            Firebase();
+        </script>
+       <div style="width: 78%; border: solid 1px black;margin: auto;">
+         <div class="input">
+            <div class="textbox">
+                <h3>댓글</h3>
+              </div>
+            <div class="input1">
+                <label for="exampleFormControlTextarea1" class="form-label">댓글 작성하기</label>
+                <textarea id="question" class="form-control" id="exampleFormControlTextarea1" rows="8"
+                style="resize: none;width: 100; height: 100%;"></textarea>
+                <button id="savebtn" type="button" class="btn btn-secondary" style="height: 40px;">보내기</button>
+            </div>
+            </div>
+        </div>
+              <!------form-------->
+              
+              <div class="mycards">
+                <div class="row row-cols-1 row-cols-md-4 g-4" id="cards">
+                </div>
+              </div>
+        </div>
+    </div> 
 
 </body>
 

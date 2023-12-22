@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="../js/login.js"></script>
+</head>
+
+<body>
+    <div class="mypostingbox" id="postingbox">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="ID">
+            <label for="inputId">ID</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="PassWord">
+            <label for="inputPassWord">PassWord</label>
+        </div>
+        <div class="mybtn">
+            <button type="button" class="btn btn-primary" id="checkingbtn">확인</button>
+            <button type="button" class="btn btn-primary">취소</button>
+        </div>
+
+    </div>
+</body>
+<script type="module">
+    // Firebase SDK 라이브러리 가져오기
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+async function Firebase() {
+
+// Firebase 구성 정보 설정
+const firebaseConfig = {
+    apiKey: "AIzaSyDC9Guym3mn-3mQMRJDebN9er2DwiPL33g",
+    authDomain: "team2-ba7e9.firebaseapp.com",
+    projectId: "team2-ba7e9",
+    storageBucket: "team2-ba7e9.appspot.com",
+    messagingSenderId: "798914185751",
+    appId: "1:798914185751:web:22bdbfe6a0024672e26a52",
+    measurementId: "G-VZJX8QCHMX"
+};
+$("#checkingbtn").click(async function () {
+    console.log('hi!');
+})
+
+
+// Firebase 인스턴스 초기화
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+    let docs = await getDocs(collection(db, "users"));
+
+    $("#checkingbtn").click(async function () {
+        let user1 = $('#ID').val();
+        console.log(user1);
+        docs.forEach((doc) => {
+            let user2 = doc.data(); 
+            console.log(user2);
+
+            /*내가 입력한 값과 db에서 가져온 값을 if로 비교 */
+            if (user1 == user2) {
+                alert('로그인 가능한 회원입니다.');
+            } else {
+                alert('일치하는 유저가 없습니다.');
+            }
+
+        });
+    });
+
+    window.location.reload();
+}
+
+</script>
+</html>

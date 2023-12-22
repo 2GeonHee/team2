@@ -20,23 +20,23 @@
         crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="p-3 text-bg-dark">
+    <header class="p-3">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
                     <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
                         <use xlink:href="#bootstrap"></use>
                     </svg>
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="index.html" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="wanhui.html" class="nav-link px-2 text-white">공완희</a></li>
-                    <li><a href="hyoil.html" class="nav-link px-2 text-white">이효일</a></li>
-                    <li><a href="geonhui.html" class="nav-link px-2 text-white">이건희</a></li>
-                    <li><a href="sehun.html" class="nav-link px-2 text-white">방세훈</a></li>
+                    <li><a href="wanhui.html" class="nav-link px-2">공완희</a></li>
+                    <li><a href="hyoil.html" class="nav-link px-2">이효일</a></li>
+                    <li><a href="geonhui.html" class="nav-link px-2">이건희</a></li>
+                    <li><a href="sehun.html" class="nav-link px-2">방세훈</a></li>
                 </ul>
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+                    <input type="search" class="form-control form-control-dark" placeholder="Search..."
                         aria-label="Search">
                 </form>
 
@@ -48,52 +48,47 @@
         </div>
     </header>
 
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">깜꽁</h1>
-            <p class="col-md-8 fs-4">깜꽁페이지에 오신걸 환영합니다.</p>
-             </div>
-    </div>
+    <div class="mainContain">
+        <div class="text-center">
+          <div class="container">
+            <h1 class="teamName">깜꽁</h1>
+            <p class="intro">안녕하세요. 팀 '깜꽁'의 홈페이지에 오신것을 환영합니다.</p>
+          </div>
+        </div>
+      </div>
+    
     <div class="row row-cols-1 row-cols-md-4 g-3" id="posting">
 
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body" id="wanhui" onclick="location.href='./wanhui.html'">
-                    <h5 class="card-title">공완희</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
+        <div class="card text-bg-primary mb-3" style="max-width: 18rem;" onclick="location.href='./wanhui.html'">
+            <div class="card-header">공완희</div>
+            <div class="card-body">
+              <h5 class="card-title">Primary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
-        </div>
+          </div>
 
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body"  id="hyoil" onclick="location.href='./hyoil.html'">
-                    <h5 class="card-title">이효일</h5>
-                    <p class="card-text">This is a short card.</p>
-                </div>
+          <div class="card text-bg-secondary mb-3" style="max-width: 18rem;" onclick="location.href='./hyoil.html'">
+            <div class="card-header">이효일</div>
+            <div class="card-body">
+              <h5 class="card-title">Secondary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
-        </div>
+          </div>
 
-        <div class="col">
-            <div class="card h-100" >
-                <div class="card-body" id="geonhui" onclick="location.href='./geonhui.html'">
-                    <h5 class="card-title">이건희</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content.</p>
-                </div>
+          <div class="card text-bg-success mb-3" style="max-width: 18rem;" onclick="location.href='./geonhui.html'">
+            <div class="card-header">이건희</div>
+            <div class="card-body">
+              <h5 class="card-title">Success card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body" id="sehun" onclick="location.href='./sehun.html'">
-                    <h5 class="card-title">방세훈</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
+          </div>
+          <div class="card text-bg-danger mb-3" style="max-width: 18rem;" onclick="location.href='./sehun.html'">
+            <div class="card-header">방세훈</div>
+            <div class="card-body">
+              <h5 class="card-title">Danger card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
-        </div>
+          </div>
     </div>
 
 </body>
