@@ -1,95 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>깜꽁</title>
-   
-    <link rel="stylesheet" href="../css/index.css">
 
-    <script src="./js/index.js"></script>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>깜꽁</title>
+
+  <link rel="stylesheet" href="../css/index.css">
+
+  <script type="module" src="../js/index.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <header class="p-3">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                </a>
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.html" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="wanhui.html" class="nav-link px-2">공완희</a></li>
-                    <li><a href="hyoil.html" class="nav-link px-2">이효일</a></li>
-                    <li><a href="geonhui.html" class="nav-link px-2">이건희</a></li>
-                    <li><a href="sehun.html" class="nav-link px-2">방세훈</a></li>
-                </ul>
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark" placeholder="Search..."
-                        aria-label="Search">
-                </form>
+  <header class="p-3">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="index.html" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="wanhui.html" class="nav-link px-2">공완희</a></li>
+          <li><a href="hyoil.html" class="nav-link px-2">이효일</a></li>
+          <li><a href="geonhui.html" class="nav-link px-2">이건희</a></li>
+          <li><a href="sehun.html" class="nav-link px-2">방세훈</a></li>
+        </ul>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        </form>
 
-                <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
-                </div>
-            </div>
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2" id="login_btn" display="block">Login</button>
+          <button type="button" class="btn btn-warning" id="join_btn">Sign-up</button>
         </div>
-    </header>
-
-    <div class="mainContain">
-        <div class="text-center">
-          <div class="container">
-            <h1 class="teamName">깜꽁</h1>
-            <p class="intro">안녕하세요. 팀 '깜꽁'의 홈페이지에 오신것을 환영합니다.</p>
+        <div class="login">
+          <div class="login_popup">
+            <h1>로그인</h1>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="ID">
+              <label for="inputId">ID</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="PassWord">
+              <label for="inputPassWord">PassWord</label>
+            </div>
+            <button type="button" class="check_btn1">확인</button>
+            <button type="button" class="close_btn1">닫기</button>
+          </div>
+        </div>
+        <div class="join">
+          <div class="join_popup">
+            <h1>회원가입</h1>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="ID">
+              <label for="inputId">ID</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="PassWord">
+              <label for="inputPassWord">PassWord</label>
+            </div>
+            <button type="button" class="check_btn2">확인</button>
+            <button type="button" class="close_btn2">닫기</button>
           </div>
         </div>
       </div>
-    
-    <div class="row row-cols-1 row-cols-md-4 g-3" id="posting">
+    </div>
+  </header>
 
-        <div class="card text-bg-primary mb-3" style="max-width: 18rem;" onclick="location.href='./wanhui.html'">
-            <div class="card-header">공완희</div>
-            <div class="card-body">
-              <h5 class="card-title">Primary card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
+  <div class="mainContain">
+    <div class="text-center">
+      <div class="container">
+        <h1 class="teamName">깜꽁</h1>
+        <p class="intro">안녕하세요. 팀 '깜꽁'의 홈페이지에 오신것을 환영합니다.</p>
+      </div>
+    </div>
+  </div>
 
-          <div class="card text-bg-secondary mb-3" style="max-width: 18rem;" onclick="location.href='./hyoil.html'">
-            <div class="card-header">이효일</div>
-            <div class="card-body">
-              <h5 class="card-title">Secondary card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
+  <div class="row row-cols-1 row-cols-md-4 g-3" id="posting">
 
-          <div class="card text-bg-success mb-3" style="max-width: 18rem;" onclick="location.href='./geonhui.html'">
-            <div class="card-header">이건희</div>
-            <div class="card-body">
-              <h5 class="card-title">Success card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-          <div class="card text-bg-danger mb-3" style="max-width: 18rem;" onclick="location.href='./sehun.html'">
-            <div class="card-header">방세훈</div>
-            <div class="card-body">
-              <h5 class="card-title">Danger card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
+    <div class="card text-bg-primary mb-3" style="max-width: 18rem;" onclick="location.href='./wanhui.html'">
+      <div class="card-header">공완희</div>
+      <div class="card-body">
+        <h5 class="card-title">Primary card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
     </div>
 
+    <div class="card text-bg-secondary mb-3" style="max-width: 18rem;" onclick="location.href='./hyoil.html'">
+      <div class="card-header">이효일</div>
+      <div class="card-body">
+        <h5 class="card-title">Secondary card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
+    </div>
+
+    <div class="card text-bg-success mb-3" style="max-width: 18rem;" onclick="location.href='./geonhui.html'">
+      <div class="card-header">이건희</div>
+      <div class="card-body">
+        <h5 class="card-title">Success card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
+    </div>
+    <div class="card text-bg-danger mb-3" style="max-width: 18rem;" onclick="location.href='./sehun.html'">
+      <div class="card-header">방세훈</div>
+      <div class="card-body">
+        <h5 class="card-title">Danger card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+
+
+
+    const modal = document.querySelector('.login');
+    const modalOpen = document.querySelector('#login_btn');
+    const modalClose = document.querySelector('.close_btn1');
+    //열기 버튼을 눌렀을 때 모달팝업이 열림
+    modalOpen.addEventListener('click', function () {
+      modal.style.display = 'block';
+    });
+    //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+    modalClose.addEventListener('click', function () {
+      modal.style.display = 'none';
+    });
+
+    const modal2 = document.querySelector('.join');
+    const modalOpen2 = document.querySelector('#join_btn');
+    const modalClose2 = document.querySelector('.close_btn2');
+    //열기 버튼을 눌렀을 때 모달팝업이 열림
+    modalOpen2.addEventListener('click', function () {
+      modal2.style.display = 'block';
+    });
+    //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+    modalClose2.addEventListener('click', function () {
+      modal2.style.display = 'none';
+    });
+
+
+  </script>
 </body>
+
 </html>
