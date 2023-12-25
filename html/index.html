@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="../css/index.css">
 
-  <script type="module" src="../js/index.js"></script>
+  <script src="../js/index.js"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -125,8 +125,29 @@
       </div>
     </div>
   </div>
-  <script>
+  <script type="module">
+    // Firebase SDK 라이브러리 가져오기
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
+    // Firebase 구성 정보 설정
+    const firebaseConfig = {
+      apiKey: "AIzaSyDC9Guym3mn-3mQMRJDebN9er2DwiPL33g",
+      authDomain: "team2-ba7e9.firebaseapp.com",
+      projectId: "team2-ba7e9",
+      storageBucket: "team2-ba7e9.appspot.com",
+      messagingSenderId: "798914185751",
+      appId: "1:798914185751:web:22bdbfe6a0024672e26a52",
+      measurementId: "G-VZJX8QCHMX"
+    };
+
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    console.log('hi!1');
 
 
     const modal = document.querySelector('.login');
@@ -152,6 +173,22 @@
     modalClose2.addEventListener('click', function () {
       modal2.style.display = 'none';
     });
+
+    $(".check_btn1").click(async function () {
+      let Id = $('#ID').val();
+      let PassWord = $('#PassWord').val();
+      let doc = { 
+        'ID': Id,
+        'PassWord' : PassWord
+    };
+      await addDoc(collection(db, "users"), doc);
+
+      alert('회원가입이 완료되었습니다.')
+
+      window.location.reload();
+    })
+
+
 
 
   </script>
