@@ -49,11 +49,11 @@
           <div class="login_popup">
             <h1>로그인</h1>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="ID">
+              <input type="text" class="form-control" id="getID">
               <label for="inputId">ID</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="PassWord">
+              <input type="password" class="form-control" id="getPassWord">
               <label for="inputPassWord">PassWord</label>
             </div>
             <button type="button" class="check_btn1">확인</button>
@@ -64,11 +64,11 @@
           <div class="join_popup">
             <h1>회원가입</h1>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="ID">
+              <input type="text" class="form-control" id="addID">
               <label for="inputId">ID</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="PassWord">
+              <input type="password" class="form-control" id="addPassWord">
               <label for="inputPassWord">PassWord</label>
             </div>
             <button type="button" class="check_btn2">확인</button>
@@ -174,9 +174,9 @@
       modal2.style.display = 'none';
     });
 
-    $(".check_btn1").click(async function () {
-      let Id = $('#ID').val();
-      let PassWord = $('#PassWord').val();
+    $(".check_btn2").click(async function () {
+      let Id = $('#addID').val();
+      let PassWord = $('#addPassWord').val();
       let doc = { 
         'ID': Id,
         'PassWord' : PassWord
@@ -188,7 +188,34 @@
       window.location.reload();
     })
 
+    $(".check_btn1").click(async function () {
+      let userId = $('#getID').val();
+      let userPassWord = $('#getPassWord').val();
+      let flag = false;
 
+      let docs = await getDocs(collection(db, "users"));
+
+      docs.forEach((doc) => {
+            let row = doc.data();
+            console.log(row);
+
+            let dbId = row['ID'];
+            let dbPassWord = row['PassWord'];
+
+            if (userId === dbId) {
+              flag = true;
+              return false;
+            }
+      });
+
+      if(flag === true){
+        alert('로그인 가능한 회원입니다.');
+      } else {
+        alert('일치하는 회원이 없습니다.');
+      }
+      
+      window.location.reload();
+    })
 
 
   </script>
