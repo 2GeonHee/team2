@@ -47,14 +47,11 @@ const firebaseConfig = {
 $("#checkingbtn").click(async function () {
     console.log('hi!');
 })
-
-
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
     let docs = await getDocs(collection(db, "users"));
-
     $("#checkingbtn").click(async function () {
         let user1 = $('#ID').val();
         console.log(user1);
@@ -68,12 +65,9 @@ const db = getFirestore(app);
             } else {
                 alert('일치하는 유저가 없습니다.');
             }
-
         });
     });
-
     window.location.reload();
 }
-
 </script>
 </html>
