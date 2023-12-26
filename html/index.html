@@ -4,7 +4,17 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
+  <!--검색창 기능-->
+    <script>
+      function submitForm(event) {
+        // 엔터누르면 작동
+        if (event.keyCode === 13) {
+          event.preventDefault(); 
+          document.getElementById('searchForm').submit(); // 제출
+        }
+      }
+    </script>
+<!--검색창 기능(끝)-->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,9 +47,16 @@
           <li><a href="geonhui.html" class="nav-link px-2">이건희</a></li>
           <li><a href="sehun.html" class="nav-link px-2">방세훈</a></li>
         </ul>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-        </form>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" id="searchForm" action="search.html" method="get">
+          <input
+              href = "search.html"
+              type="search"
+              class="form-control form-control-dark"
+              placeholder="Search..."
+              aria-label="Search"
+              id="searchQuery" name="q" required onkeydown="submitForm(event)"
+              >
+      </form>
 
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2" id="login_btn" display="block">Login</button>
@@ -47,7 +64,6 @@
         </div>
       </div>
     
-    <div class="row row-cols-1 row-cols-md-4 g-3" id="posting">
 
         <div class="login">
           <div class="login_popup">
@@ -80,9 +96,7 @@
           </div>
         </div>
       </div>
-    </div>
   </header>
-
   <div class="mainContain">
     <div class="text-center">
       <div class="container">
@@ -133,7 +147,6 @@
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
     // Firebase 구성 정보 설정
     const firebaseConfig = {
       apiKey: "AIzaSyDC9Guym3mn-3mQMRJDebN9er2DwiPL33g",
@@ -144,14 +157,10 @@
       appId: "1:798914185751:web:22bdbfe6a0024672e26a52",
       measurementId: "G-VZJX8QCHMX"
     };
-
     // Firebase 인스턴스 초기화
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-
     console.log('hi!1');
-
-
     const modal = document.querySelector('.login');
     const modalOpen = document.querySelector('#login_btn');
     const modalClose = document.querySelector('.close_btn1');
@@ -218,9 +227,6 @@
       
       window.location.reload();
     })
-
-
   </script>
 </body>
-
 </html>
