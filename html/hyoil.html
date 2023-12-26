@@ -220,7 +220,7 @@
                 'ID': Id,
                 'PassWord': PassWord
             };
-            await addDoc(collection(db2, "users"), doc);
+            await addDoc(collection(db, "users"), doc);
 
             alert('회원가입이 완료되었습니다.')
 
@@ -232,7 +232,7 @@
             let userPassWord = $('#getPassWord').val();
             let flag = false;
 
-            let docs = await getDocs(collection(db2, "users"));
+            let docs = await getDocs(collection(db, "users"));
 
             docs.forEach((doc) => {
                 let row = doc.data();
