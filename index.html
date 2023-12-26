@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!--검색창 기능-->
+    <script>
+      function submitForm(event) {
+        // 엔터누르면 작동
+        if (event.keyCode === 13) {
+          event.preventDefault(); 
+          document.getElementById('searchForm').submit(); // 제출
+        }
+      }
+    </script>
+<!--검색창 기능(끝)-->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>깜꽁</title>
+
+  <link rel="stylesheet" href="css/index.css">
+
+  <script src="../js/index.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="p-3">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="html/index.html" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="html/wanhui.html" class="nav-link px-2">공완희</a></li>
+          <li><a href="html/hyoil.html" class="nav-link px-2">이효일</a></li>
+          <li><a href="html/geonhui.html" class="nav-link px-2">이건희</a></li>
+          <li><a href="html/sehun.html" class="nav-link px-2">방세훈</a></li>
+        </ul>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" id="searchForm" action="html/search.html" method="get">
+          <input
+              href = "html/search.html"
+              type="search"
+              class="form-control form-control-dark"
+              placeholder="Search..."
+              aria-label="Search"
+              id="searchQuery" name="q" required onkeydown="submitForm(event)"
+              >
+      </form>
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2" id="login_btn" display="block">Login</button>
+          <button type="button" class="btn btn-warning" id="join_btn">Sign-up</button>
+        </div>
+      </div>
+        <div class="login">
+          <div class="login_popup">
+            <h1>로그인</h1>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="getID">
+              <label for="inputId">ID</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="getPassWord">
+              <label for="inputPassWord">PassWord</label>
+            </div>
+            <button type="button" class="check_btn1">확인</button>
+            <button type="button" class="close_btn1">닫기</button>
+          </div>
+        </div>
+        <div class="join">
+          <div class="join_popup">
+            <h1>회원가입</h1>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="addID">
+              <label for="inputId">ID</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="addPassWord">
+              <label for="inputPassWord">PassWord</label>
+            </div>
+            <button type="button" class="check_btn2">확인</button>
+            <button type="button" class="close_btn2">닫기</button>
+          </div>
+        </div>
+      </div>
+  </header>
+  <div class="mainContain">
+    <div class="text-center">
+      <div class="container">
+        <h1 class="teamName">깜꽁</h1>
+        <p class="intro">안녕하세요. 팀 '깜꽁'의 홈페이지에 오신것을 환영합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-4 g-3" id="posting">
+
+    <div class="card text-bg-primary mb-3" style="max-width: 18rem;" onclick="location.href='html/wanhui.html'">
+      <div class="card-header">공완희</div>
+      <div class="card-body">
+        <h5 class="card-title">여러분, 안녕하세요!!</h5>
+        <p class="card-text">JAVA 4기 합류하신 분들 모두 반갑습니다. 제 최애 사진과 MBTI가 궁금하다면 버튼을 눌러주세요!!</p>
+      </div>
+    </div>
+
+    <div class="card text-bg-secondary mb-3" style="max-width: 18rem;" onclick="location.href='html/hyoil.html'">
+      <div class="card-header">이효일</div>
+      <div class="card-body">
+        <h5 class="card-title">이효일!</h5>
+        <p class="card-text">JAVA 4기에 합류하게 된 이효일입니다! 잘 부탁드립니다!</p>
+      </div>
+    </div>
+    <div class="card text-bg-success mb-3" style="max-width: 18rem;" onclick="location.href='html/geonhui.html'">
+      <div class="card-header">이건희</div>
+      <div class="card-body">
+        <h5 class="card-title">Hello World!</h5>
+        <p class="card-text">hi! how are you? i'm fine thank you. and you?</p>
+      </div>
+    </div>
+    <div class="card text-bg-danger mb-3" style="max-width: 18rem;" onclick="location.href='html/sehun.html'">
+      <div class="card-header">방세훈</div>
+      <div class="card-body">
+        <h5 class="card-title">안녕하세요</h5>
+        <p class="card-text">JAVA Spring 4기 합류하신 분들 모두 반갑습니다.</p>
+      </div>
+    </div>
+  </div>
+  <script type="module">
+    // Firebase SDK 라이브러리 가져오기
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    // Firebase 구성 정보 설정
+    const firebaseConfig = {
+      apiKey: "AIzaSyCnWzN5W6X8uCEa8kDshO7yFHMmPlyK2Bw",
+        authDomain: "sparta-b8ff7.firebaseapp.com",
+        projectId: "sparta-b8ff7",
+        storageBucket: "sparta-b8ff7.appspot.com",
+        messagingSenderId: "382464668576",
+        appId: "1:382464668576:web:82e59da68a7a5b9aecaac5",
+        measurementId: "G-9S7MFN1FS9",
+    };
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    console.log('hi!1');
+    const modal = document.querySelector('.login');
+    const modalOpen = document.querySelector('#login_btn');
+    const modalClose = document.querySelector('.close_btn1');
+    //열기 버튼을 눌렀을 때 모달팝업이 열림
+    modalOpen.addEventListener('click', function () {
+      modal.style.display = 'block';
+    });
+    //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+    modalClose.addEventListener('click', function () {
+      modal.style.display = 'none';
+    });
+    const modal2 = document.querySelector('.join');
+    const modalOpen2 = document.querySelector('#join_btn');
+    const modalClose2 = document.querySelector('.close_btn2');
+    //열기 버튼을 눌렀을 때 모달팝업이 열림
+    modalOpen2.addEventListener('click', function () {
+      modal2.style.display = 'block';
+    });
+    //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+    modalClose2.addEventListener('click', function () {
+      modal2.style.display = 'none';
+    });
+
+    $(".check_btn2").click(async function () {
+      let Id = $('#addID').val();
+      let PassWord = $('#addPassWord').val();
+      let doc = { 
+        'ID': Id,
+        'PassWord' : PassWord
+    };
+      await addDoc(collection(db, "users"), doc);
+
+      alert('회원가입이 완료되었습니다.')
+
+      window.location.reload();
+    })
+
+    $(".check_btn1").click(async function () {
+      let userId = $('#getID').val();
+      let userPassWord = $('#getPassWord').val();
+      let flag = false;
+
+      let docs = await getDocs(collection(db, "users"));
+
+      docs.forEach((doc) => {
+            let row = doc.data();
+            console.log(row);
+
+            let dbId = row['ID'];
+            let dbPassWord = row['PassWord'];
+
+            if (userId === dbId) {
+              flag = true;
+              return false;
+            }
+      });
+      if(flag === true){
+        alert('로그인 가능한 회원입니다.');
+      } else {
+        alert('일치하는 회원이 없습니다.');
+      }
+      window.location.reload();
+    })
+  </script>
+</body>
+</html>
