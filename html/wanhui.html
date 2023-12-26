@@ -1,61 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/post.js"></script>
-    <link rel="stylesheet" href="../css/post.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <title>Gong wanhui</title>
-</head>
-
-<body>
-
-    <header class="p-3 text-bg-dark">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                </a>
-
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li>
-                        <a href="index.html" class="nav-link px-2 text-secondary">Home</a>
-                    </li>
-                    <li>
-                        <a href="wanhui.html" class="nav-link px-2 text-white">공완희</a>
-                    </li>
-                    <li>
-                        <a href="hyoil.html" class="nav-link px-2 text-white">이효일</a>
-                    </li>
-                    <li>
-                        <a href="geonhui.html" class="nav-link px-2 text-white">이건희</a>
-                    </li>
-                    <li>
-                        <a href="sehun.html" class="nav-link px-2 text-white">방세훈</a>
-                    </li>
-                </ul>
-
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
-                        aria-label="Search">
-                </form>
-
-                <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <!--firebase code for comment section-->
+       <script src="../js/firebase.js"></script>
+       <script type="module">
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import {
+      collection,
+      addDoc,
+    } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    export const FirebaseConfig = {
+        apiKey: "AIzaSyCnWzN5W6X8uCEa8kDshO7yFHMmPlyK2Bw",
+        authDomain: "sparta-b8ff7.firebaseapp.com",
+        projectId: "sparta-b8ff7",
+        storageBucket: "sparta-b8ff7.appspot.com",
+        messagingSenderId: "382464668576",
+        appId: "1:382464668576:web:82e59da68a7a5b9aecaac5",
+        measurementId: "G-9S7MFN1FS9",
+      };
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(FirebaseConfig);
+    const db = getFirestore(app);
+    const spring = await getDocs(collection(db, "Sehun"));
+    console.log(spring);
+    // 넣s
+    $("#savebtn").click(async function () {
+      let question = $("#question").val();
+      let name = $("#name").val();
+    let doc = {
+    'question':question,
+    'name':name,
+    };
+    await addDoc(collection(db, "Sehun"), doc);
+    alert("댓글이 작성되었습니다");
+    console.log("작동 확인");
+    window.location.reload();
+    })
+    let docs = await getDocs(collection(db, "Sehun"));
+    docs.forEach((doc) => {
+    let row = doc.data();
+    console.log("작동중");
+    let question = row["question"];
+    let name = row["name"];
+    let temp_html = `<h5>${name}</h5>
+    <p>${question}</p><br>
+    `;
+    $(`#questions`).append(temp_html);    
+    }); 
+        </script>
+        <!--Linkd-->
+        <link rel="stylesheet" href="../css/post.css">
+        <link rel="stylesheet" href="../css/sehun.css">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <title>wanhui</title>
+    </head>
+    <body>
+        <header class="p-3 text-bg-dark">
+            <div class="container">
+                <div
+                    class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a
+                        href="/"
+                        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                            <use xlink:href="#bootstrap"></use>
+                        </svg>
+                    </a>
+                    <ul
+                        class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li>
+                            <a href="index.html" class="nav-link px-2 text-secondary">Home</a>
+                        </li>
+                        <li>
+                            <a href="wanhui.html" class="nav-link px-2 text-white">공완희</a>
+                        </li>
+                        <li>
+                            <a href="hyoil.html" class="nav-link px-2 text-white">이효일</a>
+                        </li>
+                        <li>
+                            <a href="geonhui.html" class="nav-link px-2 text-white">이건희</a>
+                        </li>
+                        <li>
+                            <a href="sehun.html" class="nav-link px-2 text-white">방세훈</a>
+                        </li>
+                    </ul>
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                        <input
+                            href = "search.html"
+                            type="search"
+                            class="form-control form-control-dark text-bg-dark"
+                            placeholder="Search..."
+                            aria-label="Search">
+                    </form>
+                    <div class="text-end">
+                        <button type="button" class="btn btn-outline-light me-2">Login</button>
+                        <button type="button" class="btn btn-warning">Sign-up</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
     </header>
 
     <div class="posting">
@@ -86,8 +142,13 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-dark" id="home" onclick="location.href='./index.html'">뒤로가기</button>
+        <button type="button" 
+        class="btn btn-dark" 
+        id="home" onclick="location.href='./index.html'">
+        뒤로가기
+        </button>
        </div>
+
           <!--  댓글 창  -->
        <div style="width: 78%; border: solid 1px black;margin: auto;">
         <div class="input">
