@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="../css/index.css">
-    <!--검색창 기능-->
-        <script>
-            function submitForm(event) {
-              // 엔터누르면 작동
-              if (event.keyCode === 13) {
-                event.preventDefault(); 
-                document.getElementById('searchForm').submit(); // 제출
-              }
-            }
-          </script>
-    <!--검색창 기능()-->
-    <!--firebase code for comment section--><!--firebase code for comment section-->
-    <script type="module">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/index.css">
+  <!--검색창 기능-->
+  <script>
+    function submitForm(event) {
+      // 엔터누르면 작동
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById('searchForm').submit(); // 제출
+      }
+    }
+  </script>
+  <!--검색창 기능()-->
+  <!--firebase code for comment section--><!--firebase code for comment section-->
+  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import {
@@ -25,20 +26,20 @@
     } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     export const FirebaseConfig = {
-        apiKey: "AIzaSyCnWzN5W6X8uCEa8kDshO7yFHMmPlyK2Bw",
-        authDomain: "sparta-b8ff7.firebaseapp.com",
-        projectId: "sparta-b8ff7",
-        storageBucket: "sparta-b8ff7.appspot.com",
-        messagingSenderId: "382464668576",
-        appId: "1:382464668576:web:82e59da68a7a5b9aecgiaac5",
-        measurementId: "G-9S7MFN1FS9",
-      };
+      apiKey: "AIzaSyCnWzN5W6X8uCEa8kDshO7yFHMmPlyK2Bw",
+      authDomain: "sparta-b8ff7.firebaseapp.com",
+      projectId: "sparta-b8ff7",
+      storageBucket: "sparta-b8ff7.appspot.com",
+      messagingSenderId: "382464668576",
+      appId: "1:382464668576:web:82e59da68a7a5b9aecgiaac5",
+      measurementId: "G-9S7MFN1FS9",
+    };
     // Firebase 인스턴스 초기화
     const app = initializeApp(FirebaseConfig);
     const db = getFirestore(app);
     const spring = await getDocs(collection(db, "Sehun"));
     console.log(spring);
-//////////////////////////////////////////////////
+    //////////////////////////////////////////////////
     // Firebase 인스턴스 초기화
     const modal = document.querySelector('.login');
     const modalOpen = document.querySelector('#login_btn');
@@ -66,10 +67,10 @@
     $(".check_btn2").click(async function () {
       let Id = $('#addID').val();
       let PassWord = $('#addPassWord').val();
-      let doc = { 
+      let doc = {
         'ID': Id,
-        'PassWord' : PassWord
-    };
+        'PassWord': PassWord
+      };
       await addDoc(collection(db, "users"), doc);
 
       alert('회원가입이 완료되었습니다.')
@@ -85,18 +86,18 @@
       let docs = await getDocs(collection(db, "users"));
 
       docs.forEach((doc) => {
-            let row = doc.data();
-            console.log(row);
+        let row = doc.data();
+        console.log(row);
 
-            let dbId = row['ID'];
-            let dbPassWord = row['PassWord'];
+        let dbId = row['ID'];
+        let dbPassWord = row['PassWord'];
 
-            if (userId === dbId) {
-              flag = true;
-              return false;
-            }
+        if (userId === dbId) {
+          flag = true;
+          return false;
+        }
       });
-      if(flag === true){
+      if (flag === true) {
         alert('로그인 가능한 회원입니다.');
       } else {
         alert('일치하는 회원이 없습니다.');
@@ -107,163 +108,152 @@
     $("#savebtn").click(async function () {
       let question = $("#question").val();
       let name = $("#name").val();
-    let doc = {
-    'question':question,
-    'name':name,
-    };
-    await addDoc(collection(db, "Sehun"), doc);
-    alert("댓글이 작성되었습니다");
-    console.log("작동 확인");
-    window.location.reload();
+      let doc = {
+        'question': question,
+        'name': name,
+      };
+      await addDoc(collection(db, "Sehun"), doc);
+      alert("댓글이 작성되었습니다");
+      console.log("작동 확인");
+      window.location.reload();
     })
     //xp
     let docs = await getDocs(collection(db, "Sehun"));
     docs.forEach((doc) => {
-    let row = doc.data();
-    console.log("작동중");
-    let question = row["question"];
-    let name = row["name"];
-    let temp_html = `<h5>${name}</h5>
+      let row = doc.data();
+      console.log("작동중");
+      let question = row["question"];
+      let name = row["name"];
+      let temp_html = `<h5>${name}</h5>
     <p>${question}</p><br>
     `;
-    $(`#questions`).append(temp_html);
+      $(`#questions`).append(temp_html);
     });
     //
-        </script>
-        <!--Linkd-->
-        <link rel="stylesheet" href="../css/post.css">
-        <link rel="stylesheet" href="../css/sehun.css">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-            crossorigin="anonymous">
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-            crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <title>Sehun</title>
-    </head>
-    <body>
-        <header class="p-3 text-bg-dark">
-            <div class="container">
-              <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
-                  <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <use xlink:href="#bootstrap"></use>
-                  </svg>
-                </a>
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                  <li><a href="index.html" class="nav-link px-2 text-secondary">Home</a></li>
-                  <li><a href="wanhui.html" class="nav-link px-2 text-white">공완희</a></li>
-                  <li><a href="hyoil.html" class="nav-link px-2 text-white">이효일</a></li>
-                  <li><a href="geonhui.html" class="nav-link px-2 text-white">이건희</a></li>
-                  <li><a href="sehun.html" class="nav-link px-2 text-white">방세훈</a></li>
-                </ul>
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" id="searchForm" action="search.html" method="get">
-                  <input
-                      href = "search.html"
-                      type="search"
-                      class="form-control form-control-dark"
-                      placeholder="Search..."
-                      aria-label="Search"
-                      id="searchQuery" name="q" required onkeydown="submitForm(event)"
-                      >
-              </form>
-                <div class="text-end">
-                  <button type="button" class="btn btn-outline-light me-2" id="login_btn" display="block">Login</button>
-                  <button type="button" class="btn btn-warning" id="join_btn">Sign-up</button>
-                </div>
-              </div>
+  </script>
+  <!--Linkd-->
+  <link rel="stylesheet" href="../css/post.css">
+  <link rel="stylesheet" href="../css/sehun.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Sehun</title>
+</head>
 
-              </div>
-          </header>
-        
-        <div class="posting">
-            <div class="card mb-3">
-                <div class="profile">
-                    <div class="imgbox">
-                         <img src="../images/sehun1.jpg" class="card-img-top" alt="개인사진">
-                    </div>
-                    <ul>
-                        <li><span>이름</span>방세훈</li>
-                        <li><span>주소</span>대한민국 경기도 하남시</li>
-                        <li><span>취미</span>코딩, 게임, 음악</li>
-                        <li><span>mbti</span>Infp</li>
-                        <li><span>관심사</span>게임</li>
-                        <li><span>블로그</span>만드는중!</li>
-                        <li><span>한마디</span>내 방패가 되어줄 인싸를 찾습니다</li>
-                    </ul>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">소개</h4>
-                    <p class="card-text"> 게임은 잘합니다. 다 덤벼도 좋습니다. 무슨 게임이든 상관 없습니다.<br>
-                    극 I 여서 말을 잘 못합니다. 알고리즘 선생님 구합니다<br>
-                    감사합니다.</p>
-                </div>
-            </div>
-            <button
-                type="button"
-                class="btn btn-dark"
-                id="home"
-                onclick="location.href='./index.html'">뒤로가기</button>
-                <div class="login">
-                    <div class="login_popup">
-                      <h1>로그인</h1>
-                      <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="getID">
-                        <label for="inputId">ID</label>
-                      </div>
-                      <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="getPassWord">
-                        <label for="inputPassWord">PassWord</label>
-                      </div>
-                      <button type="button" class="check_btn1">확인</button>
-                      <button type="button" class="close_btn1">닫기</button>
-                    </div>
-                  </div>
-                  <div class="join">
-                    <div class="join_popup">
-                      <h1>회원가입</h1>
-                      <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="addID">
-                        <label for="inputId">ID</label>
-                      </div>
-                      <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="addPassWord">
-                        <label for="inputPassWord">PassWord</label>
-                      </div>
-                      <button type="button" class="check_btn2">확인</button>
-                      <button type="button" class="close_btn2">닫기</button>
-                    </div>
-                  </div>
+<body>
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="index.html" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="wanhui.html" class="nav-link px-2 text-white">공완희</a></li>
+          <li><a href="hyoil.html" class="nav-link px-2 text-white">이효일</a></li>
+          <li><a href="geonhui.html" class="nav-link px-2 text-white">이건희</a></li>
+          <li><a href="sehun.html" class="nav-link px-2 text-white">방세훈</a></li>
+        </ul>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" id="searchForm" action="search.html"
+          method="get">
+          <input href="search.html" type="search" class="form-control form-control-dark" placeholder="Search..."
+            aria-label="Search" id="searchQuery" name="q" required onkeydown="submitForm(event)">
+        </form>
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2" id="login_btn" display="block">Login</button>
+          <button type="button" class="btn btn-warning" id="join_btn">Sign-up</button>
         </div>
-        <!--  댓글 창  -->
-       <div style="width: 78%; border: solid 1px black;margin: auto;">
-         <div class="input">
-            <div class="input1">
-                <label for="exampleFormControlTextarea1" class="form-label">이름</label>
-                <textarea id="name" class="form-control" id="exampleFormControlTextarea1" rows="8"
-                style="resize: none;width: 20%; height: 20px;"></textarea>
-                <label for="exampleFormControlTextarea1" class="form-label">댓글 작성하기</label>
-                <textarea id="question" class="form-control" id="exampleFormControlTextarea1" rows="8"
-                style="resize: none;width: 100%; height: 100%;"></textarea>
-                <button id="savebtn" type="button" class="btn btn-secondary" style="height: 40px;">보내기</button>
-            </div>
-        </div>
-            <div class="textbox" >
-                <h3>댓글</h3><br><br>
-                <div class="textbox" id ="questions">
-                </div>
-              <!------form-------->
-            </div>
-          </div>
-        </div>
+      </div>
+
     </div>
+  </header>
 
-<!------Login--------><!------Login--------><!------Login--------><!------Login-------->
+  <div class="posting">
+    <div class="card mb-3">
+      <div class="profile">
+        <div class="imgbox">
+          <img src="../images/sehun1.jpg" class="card-img-top" alt="개인사진">
+        </div>
+        <ul>
+          <li><span>이름</span>방세훈</li>
+          <li><span>주소</span>대한민국 경기도 하남시</li>
+          <li><span>취미</span>코딩, 게임, 음악</li>
+          <li><span>mbti</span>Infp</li>
+          <li><span>관심사</span>게임</li>
+          <li><span>블로그</span>만드는중!</li>
+          <li><span>한마디</span>내 방패가 되어줄 인싸를 찾습니다</li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">소개</h4>
+        <p class="card-text"> 게임은 잘합니다. 다 덤벼도 좋습니다. 무슨 게임이든 상관 없습니다.<br>
+          극 I 여서 말을 잘 못합니다. 알고리즘 선생님 구합니다<br>
+          감사합니다.</p>
+      </div>
+    </div>
+    <button type="button" class="btn btn-dark" id="home" onclick="location.href='./index.html'">뒤로가기</button>
+    <div class="login">
+      <div class="login_popup">
+        <h1>로그인</h1>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="getID">
+          <label for="inputId">ID</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="getPassWord">
+          <label for="inputPassWord">PassWord</label>
+        </div>
+        <button type="button" class="check_btn1">확인</button>
+        <button type="button" class="close_btn1">닫기</button>
+      </div>
+    </div>
+    <div class="join">
+      <div class="join_popup">
+        <h1>회원가입</h1>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="addID">
+          <label for="inputId">ID</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="addPassWord">
+          <label for="inputPassWord">PassWord</label>
+        </div>
+        <button type="button" class="check_btn2">확인</button>
+        <button type="button" class="close_btn2">닫기</button>
+      </div>
+    </div>
+  </div>
+  <!--  댓글 창  -->
+  <div style="width: 78%; border: solid 1px black;margin: auto;">
+    <div class="input">
+      <div class="input1">
+        <label for="exampleFormControlTextarea1" class="form-label">이름</label>
+        <textarea id="name" class="form-control" id="exampleFormControlTextarea1" rows="8"
+          style="resize: none;width: 20%; height: 20px;"></textarea>
+        <label for="exampleFormControlTextarea1" class="form-label">댓글 작성하기</label>
+        <textarea id="question" class="form-control" id="exampleFormControlTextarea1" rows="8"
+          style="resize: none;width: 100%; height: 100%;"></textarea>
+        <button id="savebtn" type="button" class="btn btn-secondary" style="height: 40px;">보내기</button>
+      </div>
+    </div>
+    <div class="textbox">
+      <h3>댓글</h3><br><br>
+      <div class="textbox" id="questions">
+      </div>
+      <!------form-------->
+    </div>
+  </div>
+  </div>
+  </div>
 
+  <!------Login--------><!------Login--------><!------Login--------><!------Login-------->
+ <!--test-->
 
-    </body>
+</body>
+
 </html>
