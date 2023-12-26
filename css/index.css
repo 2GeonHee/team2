@@ -112,3 +112,17 @@
 #posting .card{
     margin: 0 16px 0;
 }
+
+/* 상세 */
+header .inner a{
+    color: #fff;
+}
+.headBg{
+    background-color: #292929;
+}
+.color{
+    color:#fff !important;
+}
+.color:hover{
+    color:#000 !important;
+}

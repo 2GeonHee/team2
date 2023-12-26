@@ -7,6 +7,7 @@
     <script src="../js/post.js"></script>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/post.css">
+    <link rel="stylesheet" href="../css/sehun.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -74,8 +75,6 @@
     `;
             $(`#questions`).append(temp_html);
         });
-
-
         const modal = document.querySelector('.login');
         const modalOpen = document.querySelector('#login_btn');
         const modalClose = document.querySelector('.close_btn1');
@@ -260,6 +259,7 @@
                 <label for="exampleFormControlTextarea1" class="form-label">댓글 작성하기</label>
                 <textarea id="question" class="form-control" id="exampleFormControlTextarea1" rows="8"
                     style="resize: none;width: 100; height: 100%;"></textarea>
+                    
                 <button id="savebtn" type="button" class="btn btn-secondary" style="height: 40px;">보내기</button>
             </div>
         </div>
