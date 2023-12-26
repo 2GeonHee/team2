@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Linkd-->
+        <link rel="stylesheet" href="../css/post.css">
+        <link rel="stylesheet" href="../css/sehun.css">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <title>검색결과</title>
+    </head>
+    <body>
+        <header class="p-3 text-bg-dark">
+            <div class="container">
+                <div
+                    class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a
+                        href="/"
+                        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                            <use xlink:href="#bootstrap"></use>
+                        </svg>
+                    </a>
+                    <ul
+                        class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li>
+                            <a href="index.html" class="nav-link px-2 text-secondary">Home</a>
+                        </li>
+                        <li>
+                            <a href="wanhui.html" class="nav-link px-2 text-white">공완희</a>
+                        </li>
+                        <li>
+                            <a href="hyoil.html" class="nav-link px-2 text-white">이효일</a>
+                        </li>
+                        <li>
+                            <a href="geonhui.html" class="nav-link px-2 text-white">이건희</a>
+                        </li>
+                        <li>
+                            <a href="sehun.html" class="nav-link px-2 text-white">방세훈</a>
+                        </li>
+                    </ul>
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" id="searchForm" action="search.html" method="get">
+                        <input
+                            href = "search.html"
+                            type="search"
+                            class="form-control form-control-dark text-bg-dark"
+                            placeholder="Search..."
+                            aria-label="Search"
+                            id="searchQuery" name="q" required onkeydown="submitForm(event)"
+                            >
+                    </form>
+                    <div class="text-end">
+                        <button type="button" class="btn btn-outline-light me-2">Login</button>
+                        <button type="button" class="btn btn-warning">Sign-up</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="posting">
+            <div class="card mb-3">
+                <div class="profile">
+                    <h4>검색 결과 입니다</h4>
+                    <div class="imgbox">
+                    <p>검색 : <span id="searchInput"></span></p>
+                    <div id="searchResults"></div>
+ <!-----------------------Script Start!!!!!!!!-------------->
+  <script type="module">
+    // Function to get the value of a query parameter by name
+    function getQueryParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+    // Function to display search results
+    function displaySearchResults() {
+      const searchQuery = getQueryParam('q');
+      const resultsContainer = document.getElementById('searchInput');
+
+      if (searchQuery) {
+        resultsContainer.innerHTML = `${searchQuery}`;
+      } else {
+        resultsContainer.innerHTML = '<p>No search query specified.</p>';
+      }
+    }
+    // Call the displaySearchResults function when the page loads
+    window.onload = displaySearchResults;
+    ///////////////// firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import {
+      collection,
+      addDoc,
+      query,
+      where,
+      or,
+      and
+    } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    export const FirebaseConfig = {
+        apiKey: "AIzaSyCnWzN5W6X8uCEa8kDshO7yFHMmPlyK2Bw",
+        authDomain: "sparta-b8ff7.firebaseapp.com",
+        projectId: "sparta-b8ff7",
+        storageBucket: "sparta-b8ff7.appspot.com",
+        messagingSenderId: "382464668576",
+        appId: "1:382464668576:web:82e59da68a7a5b9aecaac5",
+        measurementId: "G-9S7MFN1FS9",
+      };
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(FirebaseConfig);
+    const db = getFirestore(app);
+    const collections= collection(db, "SearchDB")
+    const docs = await getDocs(collections);
+    console.log(docs);
+   // 받아오기
+   
+    // Get the HTMLDivElement
+    var myDivElement = document.getElementById('searchInput');   
+    // Get the inner HTML content of the div
+    var divContent = myDivElement.innerHTML;
+    // Convert the inner HTML content to a string
+    var divContentString = divContent.toString();
+    // Log the string variable to the console (optional)
+    console.log(divContentString);
+
+    // query 정의
+    const q = query(collections, or(
+    where("sex", "==", divContentString),
+    where('name', '==', divContentString),
+    where('mbti', '==', divContentString),
+    )
+    );
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+    let row = doc.data();
+    console.log("작동중");
+    let url = row["url"];
+    let name = row["name"];
+    let sex = row["sex"];
+    let mbti = row["mbti"];
+    let temp_html = 
+    `
+    <br>
+    <div style = "margin:auto ; border: 1px solid black">
+         <p>
+         <b>이름</b> : ${name}
+         <b>성별</b> : ${sex}
+         <b>MBTI</b> : ${mbti} 
+         <span><b>주소</b> :<a href = ${url}>${url}</a></span>
+         <br></p>
+    </div>
+    `
+    ;
+    $(`#searchResults`).append(temp_html);  
+    });
+    /////////////////////////////////////
+  </script>
+  <!-----------------------Script End!!!!!!!!1-->
+                    </div>
+                </div>
+            </div>
+            <button
+                type="button"
+                class="btn btn-dark"
+                id="home"
+                onclick="location.href='./index.html'">뒤로가기</button>
+        </div>
+            </div>
+          </div>
+        </div>
+    </div> 
+    </body>
+</html>
