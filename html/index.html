@@ -4,7 +4,17 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
+  <!--검색창 기능-->
+    <script>
+      function submitForm(event) {
+        // 엔터누르면 작동
+        if (event.keyCode === 13) {
+          event.preventDefault(); 
+          document.getElementById('searchForm').submit(); // 제출
+        }
+      }
+    </script>
+<!--검색창 기능(끝)-->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,17 +47,56 @@
           <li><a href="geonhui.html" class="nav-link px-2">이건희</a></li>
           <li><a href="sehun.html" class="nav-link px-2">방세훈</a></li>
         </ul>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-        </form>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" id="searchForm" action="search.html" method="get">
+          <input
+              href = "search.html"
+              type="search"
+              class="form-control form-control-dark"
+              placeholder="Search..."
+              aria-label="Search"
+              id="searchQuery" name="q" required onkeydown="submitForm(event)"
+              >
+      </form>
 
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2" id="login_btn" display="block">Login</button>
           <button type="button" class="btn btn-warning" id="join_btn">Sign-up</button>
         </div>
       </div>
-  </header>
+    
 
+        <div class="login">
+          <div class="login_popup">
+            <h1>로그인</h1>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="getID">
+              <label for="inputId">ID</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="getPassWord">
+              <label for="inputPassWord">PassWord</label>
+            </div>
+            <button type="button" class="check_btn1">확인</button>
+            <button type="button" class="close_btn1">닫기</button>
+          </div>
+        </div>
+        <div class="join">
+          <div class="join_popup">
+            <h1>회원가입</h1>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="addID">
+              <label for="inputId">ID</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="addPassWord">
+              <label for="inputPassWord">PassWord</label>
+            </div>
+            <button type="button" class="check_btn2">확인</button>
+            <button type="button" class="close_btn2">닫기</button>
+          </div>
+        </div>
+      </div>
+  </header>
   <div class="mainContain">
     <div class="text-center">
       <div class="container">
@@ -62,9 +111,8 @@
     <div class="card text-bg-primary mb-3" style="max-width: 18rem;" onclick="location.href='./wanhui.html'">
       <div class="card-header">공완희</div>
       <div class="card-body">
-        <h5 class="card-title">Primary card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
+        <h5 class="card-title">여러분, 안녕하세요!!</h5>
+        <p class="card-text">JAVA 4기 합류하신 분들 모두 반갑습니다. 제 최애 사진과 MBTI가 궁금하다면 버튼을 눌러주세요!!</p>
       </div>
     </div>
 
@@ -87,9 +135,8 @@
     <div class="card text-bg-danger mb-3" style="max-width: 18rem;" onclick="location.href='./sehun.html'">
       <div class="card-header">방세훈</div>
       <div class="card-body">
-        <h5 class="card-title">Danger card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
+        <h5 class="card-title">안녕하세요</h5>
+        <p class="card-text">JAVA Spring 4기 합류하신 분들 모두 반갑습니다.</p>
       </div>
     </div>
   </div>
@@ -99,7 +146,6 @@
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
     // Firebase 구성 정보 설정
     const firebaseConfig = {
       apiKey: "AIzaSyDC9Guym3mn-3mQMRJDebN9er2DwiPL33g",
@@ -110,14 +156,10 @@
       appId: "1:798914185751:web:22bdbfe6a0024672e26a52",
       measurementId: "G-VZJX8QCHMX"
     };
-
     // Firebase 인스턴스 초기화
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-
     console.log('hi!1');
-
-
     const modal = document.querySelector('.login');
     const modalOpen = document.querySelector('#login_btn');
     const modalClose = document.querySelector('.close_btn1');
@@ -184,9 +226,6 @@
       
       window.location.reload();
     })
-
-
   </script>
 </body>
-
 </html>
