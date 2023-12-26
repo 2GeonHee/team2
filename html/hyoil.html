@@ -35,7 +35,7 @@
         // Firebase 인스턴스 초기화
         const app = initializeApp(FirebaseConfig);
         const db = getFirestore(app);
-        const spring = await getDocs(collection(db, "Sehun"));
+        const spring = await getDocs(collection(db, "Hyoil"));
         console.log(spring);
         // 넣s
         $("#savebtn").click(async function () {
@@ -45,13 +45,13 @@
                 'question': question,
                 'name': name,
             };
-            await addDoc(collection(db, "Sehun"), doc);
+            await addDoc(collection(db, "Hyoil"), doc);
             alert("댓글이 작성되었습니다");
             console.log("작동 확인");
             window.location.reload();
         })
 
-        let docs = await getDocs(collection(db, "Sehun"));
+        let docs = await getDocs(collection(db, "Hyoil"));
         docs.forEach((doc) => {
             let row = doc.data();
             console.log("작동중");
@@ -100,8 +100,38 @@
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <button type="button" class="btn btn-outline-light me-2" id="login_btn" display="block">Login</button>
+                    <button type="button" class="btn btn-warning" id="join_btn">Sign-up</button>
+                </div>
+                <div class="login">
+                    <div class="login_popup">
+                        <h1>로그인</h1>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="getID">
+                            <label for="inputId">ID</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="getPassWord">
+                            <label for="inputPassWord">PassWord</label>
+                        </div>
+                        <button type="button" class="check_btn1">확인</button>
+                        <button type="button" class="close_btn1">닫기</button>
+                    </div>
+                </div>
+                <div class="join">
+                    <div class="join_popup">
+                        <h1>회원가입</h1>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="addID">
+                            <label for="inputId">ID</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="addPassWord">
+                            <label for="inputPassWord">PassWord</label>
+                        </div>
+                        <button type="button" class="check_btn2">확인</button>
+                        <button type="button" class="close_btn2">닫기</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -157,7 +187,77 @@
             <!------form-------->
         </div>
     </div>
+    <script type="module">
 
+        const modal = document.querySelector('.login');
+        const modalOpen = document.querySelector('#login_btn');
+        const modalClose = document.querySelector('.close_btn1');
+        //열기 버튼을 눌렀을 때 모달팝업이 열림
+        modalOpen.addEventListener('click', function () {
+            modal.style.display = 'block';
+        });
+        //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+        modalClose.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+
+        const modal2 = document.querySelector('.join');
+        const modalOpen2 = document.querySelector('#join_btn');
+        const modalClose2 = document.querySelector('.close_btn2');
+        //열기 버튼을 눌렀을 때 모달팝업이 열림
+        modalOpen2.addEventListener('click', function () {
+            modal2.style.display = 'block';
+        });
+        //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+        modalClose2.addEventListener('click', function () {
+            modal2.style.display = 'none';
+        });
+
+        $(".check_btn2").click(async function () {
+            let Id = $('#addID').val();
+            let PassWord = $('#addPassWord').val();
+            let doc = {
+                'ID': Id,
+                'PassWord': PassWord
+            };
+            await addDoc(collection(db2, "users"), doc);
+
+            alert('회원가입이 완료되었습니다.')
+
+            window.location.reload();
+        })
+
+        $(".check_btn1").click(async function () {
+            let userId = $('#getID').val();
+            let userPassWord = $('#getPassWord').val();
+            let flag = false;
+
+            let docs = await getDocs(collection(db2, "users"));
+
+            docs.forEach((doc) => {
+                let row = doc.data();
+                console.log(row);
+
+                let dbId = row['ID'];
+                let dbPassWord = row['PassWord'];
+
+                if (userId === dbId) {
+                    flag = true;
+                    return false;
+                }
+            });
+
+            if (flag === true) {
+                alert('로그인 가능한 회원입니다.');
+            } else {
+                alert('일치하는 회원이 없습니다.');
+            }
+
+            window.location.reload();
+        })
+
+
+    </script>
 </body>
 
 </html>
