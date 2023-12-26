@@ -57,14 +57,11 @@
               id="searchQuery" name="q" required onkeydown="submitForm(event)"
               >
       </form>
-
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2" id="login_btn" display="block">Login</button>
           <button type="button" class="btn btn-warning" id="join_btn">Sign-up</button>
         </div>
       </div>
-    
-
         <div class="login">
           <div class="login_popup">
             <h1>로그인</h1>
@@ -149,13 +146,13 @@
     import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     // Firebase 구성 정보 설정
     const firebaseConfig = {
-      apiKey: "AIzaSyDC9Guym3mn-3mQMRJDebN9er2DwiPL33g",
-      authDomain: "team2-ba7e9.firebaseapp.com",
-      projectId: "team2-ba7e9",
-      storageBucket: "team2-ba7e9.appspot.com",
-      messagingSenderId: "798914185751",
-      appId: "1:798914185751:web:22bdbfe6a0024672e26a52",
-      measurementId: "G-VZJX8QCHMX"
+      apiKey: "AIzaSyCnWzN5W6X8uCEa8kDshO7yFHMmPlyK2Bw",
+        authDomain: "sparta-b8ff7.firebaseapp.com",
+        projectId: "sparta-b8ff7",
+        storageBucket: "sparta-b8ff7.appspot.com",
+        messagingSenderId: "382464668576",
+        appId: "1:382464668576:web:82e59da68a7a5b9aecaac5",
+        measurementId: "G-9S7MFN1FS9",
     };
     // Firebase 인스턴스 초기화
     const app = initializeApp(firebaseConfig);
@@ -172,7 +169,6 @@
     modalClose.addEventListener('click', function () {
       modal.style.display = 'none';
     });
-
     const modal2 = document.querySelector('.join');
     const modalOpen2 = document.querySelector('#join_btn');
     const modalClose2 = document.querySelector('.close_btn2');
@@ -218,13 +214,11 @@
               return false;
             }
       });
-
       if(flag === true){
         alert('로그인 가능한 회원입니다.');
       } else {
         alert('일치하는 회원이 없습니다.');
       }
-      
       window.location.reload();
     })
   </script>
