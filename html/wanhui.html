@@ -111,12 +111,12 @@
     'question':question,
     'name':name,
     };
-    await addDoc(collection(db, "Sehun"), doc);
+    await addDoc(collection(db, "Wan"), doc);
     alert("댓글이 작성되었습니다");
     console.log("작동 확인");
     window.location.reload();
     })
-    let docs = await getDocs(collection(db, "Sehun"));
+    let docs = await getDocs(collection(db, "Wan"));
     docs.forEach((doc) => {
     let row = doc.data();
     console.log("작동중");
