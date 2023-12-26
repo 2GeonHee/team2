@@ -3,10 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--검색창 기능-->
+        <script>
+            function submitForm(event) {
+              // 엔터누르면 작동
+              if (event.keyCode === 13) {
+                event.preventDefault(); 
+                document.getElementById('searchForm').submit(); // 제출
+              }
+            }
+          </script>
        <!--firebase code for comment section-->
-       <script src="../js/firebase.js"></script>
        <script type="module">
-                import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import {
       collection,
@@ -97,21 +106,25 @@
                             <a href="sehun.html" class="nav-link px-2 text-white">방세훈</a>
                         </li>
                     </ul>
-                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" id="searchForm" action="search.html" method="get">
                         <input
                             href = "search.html"
                             type="search"
                             class="form-control form-control-dark text-bg-dark"
                             placeholder="Search..."
-                            aria-label="Search">
+                            aria-label="Search"
+                            id="searchQuery" name="q" required onkeydown="submitForm(event)"
+                            >
                     </form>
                     <div class="text-end">
-                        <button type="button" class="btn btn-outline-light me-2">Login</button>
-                        <button type="button" class="btn btn-warning">Sign-up</button>
+                        <button id="login_btn" type="button" class="btn btn-outline-light me-2">Login</button>
+                        <button id="join_btn" type="button" class="btn btn-warning">Sign-up</button>
                     </div>
                 </div>
+                
             </div>
         </header>
+        
         <div class="posting">
             <div class="card mb-3">
                 <div class="profile">
@@ -153,7 +166,7 @@
                 style="resize: none;width: 100%; height: 100%;"></textarea>
                 <button id="savebtn" type="button" class="btn btn-secondary" style="height: 40px;">보내기</button>
             </div>
-            </div>
+        </div>
             <div class="textbox" >
                 <h3>댓글</h3><br><br>
                 <div class="textbox" id ="questions">
@@ -162,6 +175,8 @@
             </div>
           </div>
         </div>
-    </div> 
+    </div>
+
+<!------Login--------><!------Login--------><!------Login--------><!------Login-------->
     </body>
 </html>
